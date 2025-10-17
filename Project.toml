@@ -1,0 +1,12 @@
+name = "TurbyGUI"
+uuid = "ed8126b3-87e9-4bd8-83f0-a3069bea9f18"
+version = "0.1.0"
+authors = ["Nick Stone <nicholasestone@proton.me>"]
+
+[deps]
+GenieFramework = "a59fdf5c-6bf0-4f5d-949c-a137c9e2f353"
+Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
+
+[compat]
+GenieFramework = "3.0.1"
+Pkg = "1.12.0"
