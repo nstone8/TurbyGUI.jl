@@ -18,6 +18,8 @@ end
 
 @app begin
     @in load = false
+    @in eject = false
+    @in test = false
     @in run = false
     @in stop = false
     @in notrun = true
@@ -30,6 +32,18 @@ end
         td = ENV["TURBYDIR"]
         cd(ENV["TURBYDIR"]) do
             loadposition()
+        end
+    end
+    @onbutton test begin
+        td = ENV["TURBYDIR"]
+        cd(ENV["TURBYDIR"]) do
+            turbytest()
+        end
+    end
+    @onbutton eject begin
+        td = ENV["TURBYDIR"]
+        cd(ENV["TURBYDIR"]) do
+            ejectposition()
         end
     end
     @onbutton stop begin
@@ -59,7 +73,6 @@ end
                 end
             end
             run = false
-            println("ending consumer async")
         end
     end
     @onchange datapoints begin
@@ -71,10 +84,13 @@ end
     
 function ui()
     loadbutton = btn("load position",@click("load = true"),loading=:run)
+    ejectbutton = btn("eject position",@click("eject = true"),loading=:run)
+    testbutton = btn("test",@click("test = true"),loading=:run)
     runbutton = btn("run",@click("run = true"),loading = :run)
     stopbutton = btn("stop",@click("stop = true"),loading =:notrun)
     p = plot(:traces,layout=:layout)
-    [cell([loadbutton, runbutton, stopbutton]),
+    [cell([testbutton,loadbutton,ejectbutton]),
+     cell([runbutton, stopbutton]),
      cell([p])]
 end
 
