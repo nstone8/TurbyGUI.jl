@@ -41,6 +41,13 @@ Run the Turby genie app at `appdir`. If `appdir` is not an existing directory
 the app will be installed.
 """
 function gui(appdir=joinpath(".","TurbyApp"))
+    #make sure we have a config file
+    if !isfile("config.jl")
+        @error "No config file found. One can be created by executing `using Turby; createconfig()`"
+        exit(1)
+    end
+
+    #make sure genie app is installed
     if !isdir(appdir)
         installapp(appdir)
     end

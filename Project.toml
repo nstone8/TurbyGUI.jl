@@ -1,6 +1,6 @@
 name = "TurbyGUI"
 uuid = "ed8126b3-87e9-4bd8-83f0-a3069bea9f18"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Nick Stone <nicholasestone@proton.me>"]
 
 [deps]
